@@ -1,0 +1,27 @@
+{
+  "name": "Popup dictionary",
+  "version": "0.1.0",
+  "description": "Customisable popup dict that looks up the word you highlight",
+  "permissions": [
+    "activeTab",
+    "contextMenus",
+    "declarativeContent",
+    "storage"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "run_at": "document_start",
+      "matches": ["<all_urls>"],
+      "js": ["translate.js"]
+    }
+  ],
+  "options_page": "options.html",
+  "page_action": {
+    "default_popup": "popup.html"
+  },
+  "manifest_version": 2
+}
